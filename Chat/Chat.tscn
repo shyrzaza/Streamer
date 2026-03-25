@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://cjx1ous6av343"]
 
-[node name="Node2D" type="Node2D" unique_id=1866207741]
+[ext_resource type="Script" uid="uid://3fjfefaoinv7" path="res://Chat/chat.gd" id="1_ev8ch"]
+
+[node name="Root" type="Node2D" unique_id=1866207741]
+
+[node name="Chat" type="Node2D" parent="." unique_id=598682281]
+script = ExtResource("1_ev8ch")
