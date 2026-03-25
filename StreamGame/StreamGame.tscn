@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ibxscwqsmait" path="res://Playground/entities/chick/sprite/frame-3.png" id="3_m6n2p"]
 [ext_resource type="Texture2D" uid="uid://50osar3s51n3" path="res://Playground/entities/chick/sprite/frame-4.png" id="4_ddxjp"]
 [ext_resource type="Texture2D" uid="uid://cpkhkhk1k5o0i" path="res://StreamGame/Assets/RiverBackgroundPlaceholder.png" id="5_6e44r"]
+[ext_resource type="PackedScene" uid="uid://cfwkje7sru5jk" path="res://StreamGame/obstacle.tscn" id="7_m6n2p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2pqff"]
 animations = [{
@@ -52,3 +53,6 @@ shape = SubResource("CircleShape2D_pvcim")
 position = Vector2(589, 315)
 scale = Vector2(1, 1.3263158)
 texture = ExtResource("5_6e44r")
+
+[node name="Obstacle" parent="." unique_id=1659433105 instance=ExtResource("7_m6n2p")]
+position = Vector2(439, 62)

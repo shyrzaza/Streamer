@@ -8,6 +8,10 @@
 
 [node name="Root" type="Node2D" unique_id=1736692545]
 
+[node name="Chick2" parent="." unique_id=900913581 instance=ExtResource("2_threo")]
+position = Vector2(328, -268)
+input_pickable = true
+
 [node name="Chick" parent="." unique_id=1814890408 instance=ExtResource("2_threo")]
 position = Vector2(164, -134)
 input_pickable = true
@@ -42,3 +46,11 @@ position = Vector2(202, -151)
 [node name="Sprite2D" type="Sprite2D" parent="Slingshot" unique_id=1154709260]
 scale = Vector2(0.0068181776, 0.010115209)
 texture = ExtResource("4_bia53")
+
+[node name="Chick3" parent="." unique_id=2074552620 instance=ExtResource("2_threo")]
+position = Vector2(656, -536)
+input_pickable = true
+
+[node name="Chick4" parent="." unique_id=120764627 instance=ExtResource("2_threo")]
+position = Vector2(492, -402)
+input_pickable = true

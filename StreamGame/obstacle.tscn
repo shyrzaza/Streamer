@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cfwkje7sru5jk"]
+
+[ext_resource type="Texture2D" uid="uid://ckox0scqscvh2" path="res://StreamGame/Assets/RockPlaceholder.png" id="1_rxywx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6n2p"]
+radius = 35.6
+
+[node name="Obstacle" type="RigidBody2D" unique_id=1659433105]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=506353212]
+scale = Vector2(0.25173777, 0.28153935)
+texture = ExtResource("1_rxywx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=284333878]
+shape = SubResource("CircleShape2D_m6n2p")

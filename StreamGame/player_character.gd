@@ -22,7 +22,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	position.x 
 	move_and_slide()
+	
+	
 	
 	# TODO: Setup Boundaries so the character does not leave the screen/river
