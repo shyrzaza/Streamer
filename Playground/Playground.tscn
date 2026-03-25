@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d1dnm4yl2qf2t"]
+
+[ext_resource type="PackedScene" uid="uid://d2j402mpl7520" path="res://Playground/entities/chick/chick.tscn" id="2_threo"]
+[ext_resource type="Texture2D" uid="uid://mbrksvea7tgv" path="res://Playground/shared_assets/Platform9.png" id="3_s2wwn"]
+[ext_resource type="Texture2D" uid="uid://cnpellsbh0h8k" path="res://Playground/entities/chick/sprite/frame-1.png" id="4_bia53"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r0du0"]
+
+[node name="Root" type="Node2D" unique_id=1736692545]
+
+[node name="Chick" parent="." unique_id=1814890408 instance=ExtResource("2_threo")]
+position = Vector2(164, -134)
+input_pickable = true
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1340505408]
+position = Vector2(941, -27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1556587179]
+position = Vector2(0, -14)
+shape = SubResource("WorldBoundaryShape2D_r0du0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Floor" unique_id=474558586]
+offset_left = -927.0
+offset_top = -15.0
+offset_right = 335.0
+offset_bottom = 15.0
+texture = ExtResource("3_s2wwn")
+region_rect = Rect2(0, 0, 95.90433, 32)
+patch_margin_left = 21
+patch_margin_top = 16
+patch_margin_right = 21
+patch_margin_bottom = 8
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1023391552]
+position = Vector2(579, -324)
+
+[node name="Slingshot" type="Node2D" parent="." unique_id=1429201804]
+position = Vector2(202, -151)
+
+[node name="Sprite2D" type="Sprite2D" parent="Slingshot" unique_id=1154709260]
+scale = Vector2(0.0068181776, 0.010115209)
+texture = ExtResource("4_bia53")

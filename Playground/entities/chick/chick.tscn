@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d2j402mpl7520"]
+
+[ext_resource type="Script" uid="uid://bhgdp5iix8anu" path="res://entities/chick/chick.gd" id="1_68bk8"]
+[ext_resource type="Texture2D" uid="uid://cnpellsbh0h8k" path="res://entities/chick/sprite/frame-1.png" id="1_d1bus"]
+[ext_resource type="Texture2D" uid="uid://du3y8qv5agiu8" path="res://entities/chick/sprite/frame-2.png" id="2_68bk8"]
+[ext_resource type="Texture2D" uid="uid://ibxscwqsmait" path="res://entities/chick/sprite/frame-3.png" id="3_ukdrk"]
+[ext_resource type="Texture2D" uid="uid://50osar3s51n3" path="res://entities/chick/sprite/frame-4.png" id="4_yu88a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eilnm"]
+radius = 15.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kugjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d1bus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_68bk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ukdrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yu88a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Chick" type="RigidBody2D" unique_id=900913581]
+script = ExtResource("1_68bk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871618254]
+shape = SubResource("CircleShape2D_eilnm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=32101766]
+position = Vector2(-3, 0)
+scale = Vector2(0.0331106, 0.0331106)
+sprite_frames = SubResource("SpriteFrames_kugjb")
+frame = 3
+frame_progress = 0.2881068
