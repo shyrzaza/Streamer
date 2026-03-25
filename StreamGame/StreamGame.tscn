@@ -1,3 +1,52 @@
 [gd_scene format=3 uid="uid://bwbwr2bxwey6b"]
 
-[node name="Node2D" type="Node2D" unique_id=867200061]
+[ext_resource type="Texture2D" uid="uid://cnpellsbh0h8k" path="res://Playground/entities/chick/sprite/frame-1.png" id="1_pnog4"]
+[ext_resource type="Texture2D" uid="uid://du3y8qv5agiu8" path="res://Playground/entities/chick/sprite/frame-2.png" id="2_acwgy"]
+[ext_resource type="Texture2D" uid="uid://ibxscwqsmait" path="res://Playground/entities/chick/sprite/frame-3.png" id="3_m6n2p"]
+[ext_resource type="Texture2D" uid="uid://50osar3s51n3" path="res://Playground/entities/chick/sprite/frame-4.png" id="4_ddxjp"]
+[ext_resource type="Texture2D" uid="uid://cpkhkhk1k5o0i" path="res://StreamGame/Assets/RiverBackgroundPlaceholder.png" id="5_6e44r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2pqff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pnog4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_acwgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m6n2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ddxjp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvcim"]
+radius = 27.07
+
+[node name="Root" type="Node2D" unique_id=867200061]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=601523504]
+z_index = 10
+position = Vector2(606, 590)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter" unique_id=981969360]
+position = Vector2(1.8513825, 0)
+rotation = -1.5707964
+scale = Vector2(0.04755469, 0.05917571)
+sprite_frames = SubResource("SpriteFrames_2pqff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter" unique_id=915047410]
+shape = SubResource("CircleShape2D_pvcim")
+
+[node name="River" type="Node2D" parent="." unique_id=129131300]
+
+[node name="Background" type="Sprite2D" parent="River" unique_id=1942278119]
+position = Vector2(589, 315)
+scale = Vector2(1, 1.3263158)
+texture = ExtResource("5_6e44r")
