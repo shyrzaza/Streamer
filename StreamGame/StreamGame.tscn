@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bwbwr2bxwey6b"]
 
+[ext_resource type="Script" uid="uid://pi71n7anthyg" path="res://StreamGame/player_character.gd" id="1_acwgy"]
 [ext_resource type="Texture2D" uid="uid://cnpellsbh0h8k" path="res://Playground/entities/chick/sprite/frame-1.png" id="1_pnog4"]
 [ext_resource type="Texture2D" uid="uid://du3y8qv5agiu8" path="res://Playground/entities/chick/sprite/frame-2.png" id="2_acwgy"]
 [ext_resource type="Texture2D" uid="uid://ibxscwqsmait" path="res://Playground/entities/chick/sprite/frame-3.png" id="3_m6n2p"]
@@ -34,6 +35,7 @@ radius = 27.07
 [node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=601523504]
 z_index = 10
 position = Vector2(606, 590)
+script = ExtResource("1_acwgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter" unique_id=981969360]
 position = Vector2(1.8513825, 0)
