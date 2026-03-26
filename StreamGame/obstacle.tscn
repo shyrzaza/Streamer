@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://cfwkje7sru5jk"]
 
+[ext_resource type="Script" uid="uid://cn7klqwx2inw" path="res://StreamGame/obstacle.gd" id="1_feq4s"]
 [ext_resource type="Texture2D" uid="uid://ckox0scqscvh2" path="res://StreamGame/Assets/RockPlaceholder.png" id="1_rxywx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6n2p"]
 radius = 35.6
 
-[node name="Obstacle" type="RigidBody2D" unique_id=1659433105]
-gravity_scale = 0.0
+[node name="Obstacle" type="Area2D" unique_id=318166597]
+script = ExtResource("1_feq4s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=506353212]
 scale = Vector2(0.25173777, 0.28153935)
