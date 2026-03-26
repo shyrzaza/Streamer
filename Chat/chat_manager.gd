@@ -1,10 +1,20 @@
 extends VBoxContainer
 
 var chat_scene = preload("res://Chat/chat_message.tscn")
-var nice_messages: ChatDB
-var toxic_messages: ChatDB
+var nice_messages: StringProvider
+var toxic_messages: StringProvider
+var usernames: StringProvider
+var username_colors: Array[Color] = [
+		Color.from_rgba8(0, 0, 255), Color.from_rgba8(255, 0, 0),
+		Color.from_rgba8(138, 43, 226), Color.from_rgba8(255, 105, 180),
+		Color.from_rgba8(30, 144, 255), Color.from_rgba8(0, 128, 0),
+		Color.from_rgba8(0, 255, 127), Color.from_rgba8(178, 34, 34),
+		Color.from_rgba8(218, 165, 32), Color.from_rgba8(255, 69, 0),
+		Color.from_rgba8(46, 139, 87), Color.from_rgba8(95, 158, 160),
+		Color.from_rgba8(210, 105, 30)
+	] 
 
-class ChatDB:
+class StringProvider:
 	var messages = []
 	var used_messages = []
 	
@@ -19,7 +29,7 @@ class ChatDB:
 		messages = copy_ref
 		messages.shuffle()
 	
-	func get_new_message() -> String:
+	func get_new_string() -> String:
 		if messages.size() == 0:
 			reshuffle_messages()
 		
@@ -34,27 +44,34 @@ func create_chat_message(chanceForToxic: float) -> String:
 	assert(0.0 <= chanceForToxic)
 	assert(chanceForToxic <= 1.0)
 	
+	# Add Username
+	var color: Color = username_colors.pick_random()
+	var message = "[color=%s]%s[/color]: " % [color.to_html(), usernames.get_new_string()]
+	
 	# Roll the RNG to check if the message is toxic
 	if randf() > chanceForToxic:
-		return create_nice_chat_message()
+		message += create_nice_chat_message()
 	else: 
-		return create_toxic_chat_message()
+		message += create_toxic_chat_message()
+		
+	return message
 
 func create_nice_chat_message() -> String:
-	return nice_messages.get_new_message()
+	return nice_messages.get_new_string()
 	
 func create_toxic_chat_message() -> String:
-	return toxic_messages.get_new_message()
+	return toxic_messages.get_new_string()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	nice_messages = ChatDB.new("res://Chat/nice_chat_messages.json")
-	toxic_messages = ChatDB.new("res://Chat/toxic_chat_messages.json")
+	nice_messages = StringProvider.new("res://Chat/nice_chat_messages.json")
+	toxic_messages = StringProvider.new("res://Chat/toxic_chat_messages.json")
+	usernames = StringProvider.new("res://Chat/usernames.json")
 
 
-var CHAT_MESSAGE_TIME = 3.0
+var CHAT_MESSAGE_TIME = 0.1
 var elapsed_time = 0.0
-var TOXIC_CHANCE = 0.5
+var TOXIC_CHANCE = 0.25
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

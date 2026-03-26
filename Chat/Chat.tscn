@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://cjx1ous6av343"]
 
-[ext_resource type="Script" uid="uid://3fjfefaoinv7" path="res://Chat/chat.gd" id="1_ev8ch"]
 [ext_resource type="Script" uid="uid://dktnrh0kg4i0s" path="res://Chat/chat_manager.gd" id="2_k6ogl"]
-[ext_resource type="PackedScene" uid="uid://clgw4u667gg1n" path="res://Chat/chat_message.tscn" id="3_v615g"]
 
 [node name="Root" type="Node2D" unique_id=1866207741]
-
-[node name="Chat" type="Node2D" parent="." unique_id=598682281]
-script = ExtResource("1_ev8ch")
 
 [node name="Chat Panel" type="Panel" parent="." unique_id=549008755]
 custom_minimum_size = Vector2(0, 1080)
@@ -15,30 +10,19 @@ offset_right = 354.0
 offset_bottom = 1080.0
 
 [node name="ChatScroller" type="VBoxContainer" parent="Chat Panel" unique_id=161060962]
-custom_minimum_size = Vector2(0, 900)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 900.0
 grow_horizontal = 2
+alignment = 2
 script = ExtResource("2_k6ogl")
-
-[node name="Chat Message 1" parent="Chat Panel/ChatScroller" unique_id=1197712706 instance=ExtResource("3_v615g")]
-layout_mode = 2
-
-[node name="Chat Message 2" type="RichTextLabel" parent="Chat Panel/ChatScroller" unique_id=107060270]
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-size_flags_horizontal = 3
-bbcode_enabled = true
-text = "[color=#ff0000ff]User1[/color]: Hello 😀this is a long text whay are you saying so much"
-fit_content = true
-autowrap_mode = 2
 
 [node name="Chat Message 3" type="RichTextLabel" parent="Chat Panel/ChatScroller" unique_id=2086115749]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 bbcode_enabled = true
 text = "[color=#ff0000ff]User1[/color]: Hello 😀this is a long text whay are you saying so much"
 fit_content = true
