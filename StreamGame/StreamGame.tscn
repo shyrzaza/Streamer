@@ -56,3 +56,4 @@ texture = ExtResource("5_6e44r")
 
 [node name="Obstacle" parent="." unique_id=1659433105 instance=ExtResource("7_m6n2p")]
 position = Vector2(439, 62)
+gravity_scale = 0.0

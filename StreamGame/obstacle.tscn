@@ -6,6 +6,7 @@
 radius = 35.6
 
 [node name="Obstacle" type="RigidBody2D" unique_id=1659433105]
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=506353212]
 scale = Vector2(0.25173777, 0.28153935)
