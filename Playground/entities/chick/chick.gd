@@ -4,7 +4,7 @@ var dragging := false
 var drag_offset := Vector2.ZERO
 
 
-
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 			
 func _input_event(viewport, event, shapeidx):
@@ -37,7 +37,7 @@ func stop_drag():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Chick ready")
-	pass # Replace with function body.
+	anim.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
