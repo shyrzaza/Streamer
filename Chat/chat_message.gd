@@ -16,10 +16,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var node_position = get("position")
 	if node_position.y <= 0:
-		if is_toxic == banned:
-			point_callable.call(10)
+		if is_toxic:
+			if banned:
+				point_callable.call(1)
+			else:
+				point_callable.call(-1)
 		else:
-			point_callable.call(-10)
+			if banned:
+				point_callable.call(-1)
+				
 		self.queue_free()
 
 func set_point_callable(point_callable: Callable):

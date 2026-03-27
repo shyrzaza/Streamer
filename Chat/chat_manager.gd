@@ -80,7 +80,7 @@ func _ready() -> void:
 	toxic_messages = StringProvider.new("res://Chat/toxic_chat_messages.json")
 	usernames = StringProvider.new("res://Chat/usernames.json")
 
-@export var CHAT_MESSAGE_TIME = 0.2
+@export var CHAT_MESSAGE_TIME = 2
 var elapsed_time = 0.0
 @export var TOXIC_CHANCE = 0.25
 
