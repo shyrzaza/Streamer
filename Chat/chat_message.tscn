@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://clgw4u667gg1n"]
 
+[ext_resource type="Script" uid="uid://d4dmvkrxsynvu" path="res://Chat/chat_message.gd" id="1_js3cs"]
+
 [node name="Chat Message 1" type="RichTextLabel" unique_id=1197712706]
 custom_minimum_size = Vector2(0, 25)
 size_flags_horizontal = 3
@@ -7,3 +9,6 @@ bbcode_enabled = true
 text = "[color=#ff0000ff]User1[/color]: Hello 😀this is a long text whay are you saying so much"
 fit_content = true
 autowrap_mode = 2
+script = ExtResource("1_js3cs")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

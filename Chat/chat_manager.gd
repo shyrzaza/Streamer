@@ -12,7 +12,8 @@ var username_colors: Array[Color] = [
 		Color.from_rgba8(218, 165, 32), Color.from_rgba8(255, 69, 0),
 		Color.from_rgba8(46, 139, 87), Color.from_rgba8(95, 158, 160),
 		Color.from_rgba8(210, 105, 30)
-	] 
+	]
+var points = 0
 
 class StringProvider:
 	var messages = []
@@ -45,15 +46,22 @@ func create_chat_message(chanceForToxic: float) -> String:
 	assert(chanceForToxic <= 1.0)
 	
 	# Add Username
+	var username = usernames.get_new_string()
 	var color: Color = username_colors.pick_random()
-	var message = "[color=%s]%s[/color]: " % [color.to_html(), usernames.get_new_string()]
-	
+
 	# Roll the RNG to check if the message is toxic
-	if randf() > chanceForToxic:
+	var is_toxic = randf() > chanceForToxic
+	var message = ""
+	if is_toxic:
 		message += create_nice_chat_message()
 	else: 
 		message += create_toxic_chat_message()
-		
+	
+	var new_chat_message = chat_scene.instantiate()
+	new_chat_message.set_message(color, username, message, not is_toxic)
+	new_chat_message.set_point_callable(Callable(add_points))
+	add_child(new_chat_message)
+	
 	return message
 
 func create_nice_chat_message() -> String:
@@ -62,24 +70,25 @@ func create_nice_chat_message() -> String:
 func create_toxic_chat_message() -> String:
 	return toxic_messages.get_new_string()
 
+func add_points(points: int):
+	self.points += points
+	print("Points:", self.points)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	nice_messages = StringProvider.new("res://Chat/nice_chat_messages.json")
 	toxic_messages = StringProvider.new("res://Chat/toxic_chat_messages.json")
 	usernames = StringProvider.new("res://Chat/usernames.json")
 
-
-var CHAT_MESSAGE_TIME = 0.1
+@export var CHAT_MESSAGE_TIME = 0.2
 var elapsed_time = 0.0
-var TOXIC_CHANCE = 0.25
+@export var TOXIC_CHANCE = 0.25
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	elapsed_time += delta
 	
 	if elapsed_time >= CHAT_MESSAGE_TIME:
-		var new_chat_message: RichTextLabel = chat_scene.instantiate()
-		add_child(new_chat_message)
-		new_chat_message.text = create_chat_message(TOXIC_CHANCE)
+		create_chat_message(TOXIC_CHANCE)
 		
 		elapsed_time -= CHAT_MESSAGE_TIME
