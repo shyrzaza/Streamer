@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var score = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,9 +24,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	position.x 
 	move_and_slide()
 	
+func add_to_score(amount: int) -> void:
+	score += amount
 	
-	
-	# TODO: Setup Boundaries so the character does not leave the screen/river
+# TODO: Setup Boundaries so the character does not leave the screen/river

@@ -5,7 +5,6 @@ var SPEED = 60
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.y += SPEED * delta
@@ -13,4 +12,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		print("get hit")
+		if body.has_method("add_to_score"):
+			body.add_to_score(20) #TODO TEST
