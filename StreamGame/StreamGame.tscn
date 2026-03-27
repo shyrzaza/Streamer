@@ -43,6 +43,7 @@ position = Vector2(1.8513825, 0)
 rotation = -1.5707964
 scale = Vector2(0.04755469, 0.05917571)
 sprite_frames = SubResource("SpriteFrames_2pqff")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter" unique_id=915047410]
 shape = SubResource("CircleShape2D_pvcim")
