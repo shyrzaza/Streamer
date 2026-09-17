@@ -7,6 +7,8 @@ var is_toxic
 var point_callable: Callable
 var banned = false
 
+@export var chat_message_color: Color
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -37,7 +39,7 @@ func set_message(color: Color, username: String, message: String, is_toxic: bool
 	self.message = message
 	self.is_toxic = is_toxic
 
-	self.text = "[color=%s]%s[/color]: %s" % [color.to_html(), username, message]
+	self.text = "[color=%s]%s[/color]: [color=%s]%s[/color]" % [color.to_html(), username, chat_message_color.to_html(), message]
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Ban"):

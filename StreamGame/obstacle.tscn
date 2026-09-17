@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://ckox0scqscvh2" path="res://StreamGame/Assets/RockPlaceholder.png" id="1_rxywx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6n2p"]
-radius = 35.6
+radius = 63.53
 
 [node name="Obstacle" type="Area2D" unique_id=318166597]
 script = ExtResource("1_feq4s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=506353212]
-scale = Vector2(0.25173777, 0.28153935)
+scale = Vector2(0.4806259, 0.53752404)
 texture = ExtResource("1_rxywx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=284333878]
+position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_m6n2p")

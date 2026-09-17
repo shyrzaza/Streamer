@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://cylhg6p5ufxfc"]
 
+[ext_resource type="PackedScene" uid="uid://cjx1ous6av343" path="res://Chat/Chat.tscn" id="1_e3m3f"]
+[ext_resource type="Texture2D" uid="uid://bwada807lnln" path="res://StreamerOverlay.png" id="1_ws5ob"]
+[ext_resource type="PackedScene" uid="uid://bwbwr2bxwey6b" path="res://StreamGame/StreamGame.tscn" id="2_ws5ob"]
+
 [node name="Node2D" type="Node2D" unique_id=937859995]
+
+[node name="MainGame" type="Sprite2D" parent="." unique_id=737570809]
+position = Vector2(942.99994, 530)
+scale = Vector2(0.9797487, 0.9797487)
+texture = ExtResource("1_ws5ob")
+
+[node name="StreamGame" parent="MainGame" unique_id=867200061 instance=ExtResource("2_ws5ob")]
+z_index = -1
+position = Vector2(-759, -485)
+scale = Vector2(0.66328526, 0.66328526)
+
+[node name="Chat" parent="MainGame" unique_id=1866207741 instance=ExtResource("1_e3m3f")]
+z_index = -1
+position = Vector2(525, -541)

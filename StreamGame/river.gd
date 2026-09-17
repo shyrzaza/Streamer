@@ -6,8 +6,8 @@ var spawn_time = 3.0
 
 var obstacle_scene = preload("res://StreamGame/obstacle.tscn")
 var time_to_spawn_next_obstacle = spawn_time
-var left_spawn_border = 400
-var right_spawn_boarder = 800
+@export var left_spawn_border = 400
+@export var right_spawn_boarder = 800
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
